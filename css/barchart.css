@@ -1,0 +1,211 @@
+/* Owner: Briyant */
+
+/* Container */
+.bar-chart {
+  position: relative;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f1f1f;
+}
+
+.bar-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.bar-chart .chart-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.bar-chart .chart-subtitle {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Bars */
+
+/* Each line's bar is a <g class="bar-group"> holding both segments */
+.bar-chart .bar-group {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Dark segment: in-train excess time (full line color) */
+.bar-chart .bar-in-train {
+  fill-opacity: 1;
+}
+
+/* Light segment: out-of-train excess time (same color, lighter) */
+.bar-chart .bar-out-of-train {
+  fill-opacity: 0.45;
+}
+
+/* Hover feedback so users can tell bars are clickable */
+.bar-chart .bar-group:hover .bar-in-train,
+.bar-chart .bar-group:hover .bar-out-of-train {
+  stroke: #1f1f1f;
+  stroke-width: 1px;
+}
+
+/* Outline is hidden until the line is selected */
+.bar-chart .bar-outline {
+  fill: none;
+  stroke: none;
+}
+
+/* Selected line: thick outline around the whole bar */
+.bar-chart .bar-group.selected .bar-outline {
+  fill: none;
+  stroke: #1f1f1f;
+  stroke-width: 3px;
+}
+
+/* Lines that aren't selected fade but stay visible for comparison */
+.bar-chart .bar-group.faded {
+  opacity: 0.4;
+}
+
+/* Dashed outline showing the all-years total while a date range is brushed */
+.bar-chart .all-years-outline {
+  fill: none;
+  stroke: #111;
+  stroke-width: 2px;
+  stroke-dasharray: 5 3;
+  /* clicks pass through to the bar */
+  pointer-events: none;
+}
+
+/* Labels */
+
+/* Line names on the left (Red, Orange, Blue) */
+.bar-chart .bar-label {
+  font-size: 16px;
+  font-weight: bold;
+  text-anchor: end;
+  dominant-baseline: middle;
+}
+
+/* Total minutes at the end of each bar */
+.bar-chart .value-label {
+  font-size: 14px;
+  font-weight: bold;
+  dominant-baseline: middle;
+}
+
+/* "all years: 5.5" under the value while brushing */
+.bar-chart .value-sublabel {
+  font-size: 12px;
+  fill: #666;
+}
+
+/* Axes */
+
+.bar-chart .axis path,
+.bar-chart .axis line {
+  stroke: #999;
+}
+
+.bar-chart .axis text {
+  font-size: 12px;
+  fill: #666;
+}
+
+/* Hide the y-axis line since the bar labels already name each line */
+.bar-chart .y-axis path,
+.bar-chart .y-axis line {
+  display: none;
+}
+
+.bar-chart .axis-title {
+  font-size: 13px;
+  fill: #666;
+  text-anchor: middle;
+}
+
+/* Light vertical gridlines to help read bar lengths */
+.bar-chart .grid line {
+  stroke: #e5e5e5;
+}
+
+.bar-chart .grid path {
+  display: none;
+}
+
+/* Legend (in-train vs out-of-train) */
+
+.bar-chart .legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.bar-chart .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar-chart .legend-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+}
+
+.bar-chart .legend-swatch.in-train {
+  background: #555;
+}
+
+.bar-chart .legend-swatch.out-of-train {
+  background: #bbb;
+}
+
+.bar-chart .legend-swatch.all-years {
+  background: none;
+  border: 2px dashed #111;
+}
+
+/* Tooltip (details on demand) */
+
+.bar-chart-tooltip {
+  position: absolute;
+  /* never blocks the mouse */
+  pointer-events: none;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+
+.bar-chart-tooltip.visible {
+  opacity: 1;
+}
+
+.bar-chart-tooltip .tooltip-title {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* Interaction hint */
+
+.bar-chart .hint {
+  margin-top: 6px;
+  font-size: 12px;
+  font-style: italic;
+  color: #888;
+}
