@@ -27,11 +27,11 @@ Your project is a static website: `index.html` plus the files it loads. At the e
 ## Root Files
 * `README.md` is this explanatory file for the repo.
 
-* `index.html` contains the main website content. It includes comments surrounded by `<!--` and `-->` to help guide you through making your edits.
+* `index.html` contains the main dashboard content.
 
 * `style.css` contains the CSS.
 
-* `LICENCE` is your source code license.
+* `LICENSE` is your source code license.
 
 ## Folders
 Each folder has an explanatory `README.md` file
@@ -46,7 +46,7 @@ Each folder has an explanatory `README.md` file
 
 * `js` will contain all JavaScript files you write.
 
-  * `visualization.js` is the main code that builds all your visualizations. Each visualization should be built following the [Reusable Chart model](https://bost.ocks.org/mike/chart/)
+  * `barchart.js`, `reliability.js`, and `ridership.js` are placeholders for the dashboard's three visualizations. Each visualization should be built following the [Reusable Chart model](https://bost.ocks.org/mike/chart/).
   
 * `lib` will contain any JavaScript library you use. It currently includes D3.
 

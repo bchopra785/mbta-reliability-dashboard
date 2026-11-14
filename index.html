@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Metadata -->
 <head>
   <meta charset="utf-8">
-  
-  <!-- Title -->
-  <title>Project Team #: Topic, COSI 116A F26</title>
-  
-  <!-- CSS Styling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive dashboard exploring MBTA subway reliability and ridership recovery.">
+  <title>The Hidden Cost of MBTA Delays</title>
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/ridership.css">
+  <link rel="stylesheet" href="css/reliability.css">
  
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
@@ -20,11 +18,48 @@
   <link rel="shortcut icon" href="favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f4f6f8">
 </head>
-
-<!-- Main page content -->
 <body>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <h1>The Hidden Cost of MBTA Delays</h1>
+      <p class="dashboard-subtitle">
+        Which MBTA subway lines experienced the greatest travel-time delays, when were they worst, and how did ridership change as reliability improved?
+      </p>
+    </header>
+
+    <nav class="dashboard-controls" aria-label="Dashboard line controls">
+      <div class="line-controls">
+        <button class="line-button all-lines" type="button">All Lines</button>
+        <button class="line-button red-line" type="button">Red Line</button>
+        <button class="line-button orange-line" type="button">Orange Line</button>
+        <button class="line-button blue-line" type="button">Blue Line</button>
+      </div>
+      <button class="reset-button" type="button">Reset View</button>
+    </nav>
+
+    <section class="dashboard-grid" aria-label="Dashboard visualizations">
+      <article class="chart-card chart-card-a">
+        <h2>View A: Which line has the most excess trip time?</h2>
+        <div id="bar-chart" class="chart-container" aria-label="Excess trip time by subway line"></div>
+      </article>
+
+      <article class="chart-card chart-card-b">
+        <h2>View B: How has excess trip time changed over time?</h2>
+        <div id="reliability-chart" class="chart-container" aria-label="Excess trip time over time"></div>
+      </article>
+
+      <article class="chart-card chart-card-c">
+        <h2>View C: How has ridership recovered relative to 2019 levels?</h2>
+        <div id="ridership-chart" class="chart-container" aria-label="Ridership recovery relative to 2019"></div>
+      </article>
+    </section>
+
+    <footer class="dashboard-footer">
+      <p>Course project for COSI 116A: Information Visualization. Visualizations use <a href="https://d3js.org/">D3.js</a>.</p>
+    </footer>
+  </main>
 
   <!-- Your writeup goes here -->
   <div class = "content-column">
@@ -54,6 +89,7 @@
     <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->    
     <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
     <div id="ridership-chart"></div>
+    <div id="reliability-chart"></div>
   </div>
   
   <!-- Your writeup goes here -->
@@ -114,5 +150,6 @@
   <script src="lib/d3.v7/d3.v7.min.js"></script>
   <script src="js/ridership.js"></script>
   <script src="js/visualization.js"></script>
+  <script src="js/reliability.js"></script>
 </body>
 </html>
