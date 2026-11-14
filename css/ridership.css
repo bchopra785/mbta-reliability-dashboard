@@ -1,0 +1,45 @@
+#ridership-chart {
+  overflow: hidden;
+}
+
+#ridership-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#ridership-chart .x-axis text,
+#ridership-chart .y-axis text {
+  font: 11px sans-serif;
+}
+
+#ridership-chart .x-axis path,
+#ridership-chart .x-axis line,
+#ridership-chart .y-axis path,
+#ridership-chart .y-axis line {
+  stroke: #888;
+}
+
+#ridership-chart .gridlines line {
+  stroke: #ddd;
+}
+
+#ridership-chart .gridlines path {
+  display: none;
+}
+
+#ridership-chart .ridership-line {
+  fill: none;
+  stroke-width: 2;
+}
+
+#ridership-chart .reference-line {
+  stroke: #888;
+  stroke-dasharray: 4 3;
+}
+
+#ridership-chart .reference-label,
+#ridership-chart .y-axis-label {
+  font: 11px sans-serif;
+  fill: #555;
+}
