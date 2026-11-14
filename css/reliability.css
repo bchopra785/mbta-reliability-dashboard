@@ -1,0 +1,63 @@
+#reliability-chart {
+  overflow: hidden;
+}
+
+#reliability-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#reliability-chart .x-axis text,
+#reliability-chart .y-axis text,
+#reliability-chart .legend-item text {
+  font: 12px sans-serif;
+}
+
+#reliability-chart .x-axis path,
+#reliability-chart .x-axis line,
+#reliability-chart .y-axis path,
+#reliability-chart .y-axis line {
+  stroke: #888;
+}
+
+#reliability-chart .gridlines line {
+  stroke: #ddd;
+}
+
+#reliability-chart .gridlines path {
+  display: none;
+}
+
+#reliability-chart .reliability-line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+#reliability-chart .zero-line {
+  stroke: #555;
+  stroke-dasharray: 5 4;
+  stroke-width: 1.5;
+}
+
+#reliability-chart .axis-label,
+#reliability-chart .zero-label {
+  font: 12px sans-serif;
+  fill: #444;
+}
+
+#reliability-chart .zero-label {
+  font-size: 11px;
+}
+
+#reliability-chart .legend-item line {
+  stroke-width: 3;
+}
+
+#reliability-chart .chart-error {
+  color: #a00;
+  padding: 1rem;
+  text-align: center;
+}
