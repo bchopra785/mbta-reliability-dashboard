@@ -32,13 +32,14 @@
 
     <nav class="dashboard-controls" aria-label="Dashboard line controls">
       <div class="line-controls">
-        <button class="line-button all-lines" type="button">All Lines</button>
-        <button class="line-button red-line" type="button">Red Line</button>
-        <button class="line-button orange-line" type="button">Orange Line</button>
-        <button class="line-button blue-line" type="button">Blue Line</button>
+        <button class="line-button all-lines" type="button" data-line="All" aria-pressed="true">All Lines</button>
+        <button class="line-button red-line" type="button" data-line="Red" aria-pressed="false">Red Line</button>
+        <button class="line-button orange-line" type="button" data-line="Orange" aria-pressed="false">Orange Line</button>
+        <button class="line-button blue-line" type="button" data-line="Blue" aria-pressed="false">Blue Line</button>
       </div>
       <button class="reset-button" type="button">Reset View</button>
     </nav>
+    <p class="integration-notice" role="status" aria-live="polite">Chart linking is in progress; these controls currently update the shared selection only.</p>
 
     <section class="dashboard-grid" aria-label="Dashboard visualizations">
       <article class="chart-card chart-card-a">
@@ -73,23 +74,13 @@
     
     <h1>Motivation</h1>
     
-    <p><em>Summary of user needs and motivating questions.</em></p>
-    
-    <p><em>Expectation: There is a clear focus, and a developed explanation of the problem, and a reasonable response is proposed.</em></p>
+    <p>Many riders depend on the MBTA subway to reach work, school, and other destinations. Delays can add time to a trip, but their effects may differ by line and change over time. Our dashboard helps riders and transportation stakeholders compare excess trip time across the Red, Orange, and Blue Lines and explore how ridership has changed alongside reliability.</p>
 
     
     <h1>Visualization</h1>
     
     <p><em>Include the interactive visualization as part of this page. Static example follows.</em></p>
     
-  </div>
-  
-  <!-- Your visualization here -->
-  <div class="vis-holder">
-    <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->    
-    <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <div id="ridership-chart"></div>
-    <div id="reliability-chart"></div>
   </div>
   
   <!-- Your writeup goes here -->
@@ -110,9 +101,9 @@
     <p><em>Final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.</em></p>
 
     <h1>Data Analysis</h1>
-    <p><em>Summary of data, data types, and data preprocessing.</em></p>
+    <p>We use excess trip time data to compare observed trip times with baseline trip times. To prepare the data, we aggregate estimated passenger counts and weighted trip, travel, and wait-time components by subway line and month. We calculate passenger-weighted excess minutes by subtracting the summed baseline component from the summed observed component and dividing by the total estimated passengers for the selected period.</p>
 
-    <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
+    <p><em>Ridership source, cleaning, and comparison with corresponding 2019 months: to be completed.</em></p>
 
     <h1>Task Analysis</h1>
 
@@ -131,14 +122,13 @@
 
     <h1>Conclusion</h1>
 
-    <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
-    
-    <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
+    <p>This dashboard is designed to help users compare excess trip time across subway lines, identify changes in reliability over time, and explore ridership relative to 2019. The project is still in development: the ridership chart currently uses sample data, and the shared interactions are not yet fully connected. Once integration is complete, we will update this section with supported findings, limitations, and possible improvements.</p>
 
     
     <h1>Acknowledgments</h1>
 
-    <p><em>List here where any code, packages/libraries, text, images, designs, slides, etc. that you leverage come from. Include any use of LLMs and AIs.</em></p>
+    <p>We used the COSI 116A final project template as the starting point for the website and GitHub Copilot to assist with development.</p>
+    <p><em>To be completed: add the exact dataset sources and links, credit other external materials, and review AI acknowledgments with the team.</em></p>
     
     <ul>
       <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
@@ -148,8 +138,8 @@
   
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src="lib/d3.v7/d3.v7.min.js"></script>
+  <script src="js/dashboard.js"></script>
   <script src="js/ridership.js"></script>
-  <script src="js/visualization.js"></script>
   <script src="js/reliability.js"></script>
   <script src="js/barchart.js"></script>
 </body>

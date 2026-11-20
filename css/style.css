@@ -54,11 +54,21 @@ button {
   border: 1px solid #d5dce3;
   border-radius: 9px;
   background: #fff;
-  cursor: default;
+  cursor: pointer;
 }
 
 .line-button {
   font-weight: 600;
+}
+
+.line-button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.integration-notice {
+  margin: -8px 0 20px;
+  color: #56616d;
+  font-size: 0.9rem;
 }
 
 .all-lines {
