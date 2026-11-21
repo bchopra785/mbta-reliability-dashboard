@@ -209,3 +209,15 @@
   font-style: italic;
   color: #888;
 }
+
+.bar-chart .range-no-data,
+.bar-chart .chart-error {
+  margin: 16px 0;
+  padding: 12px;
+  color: #56616d;
+  font-size: 14px;
+}
+
+.bar-chart .chart-error {
+  color: #a00;
+}

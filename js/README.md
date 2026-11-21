@@ -11,8 +11,11 @@ to change it. Dates must be first-of-month JavaScript `Date` objects, or both
 `null` to clear the range. Line and date changes notify registered charts; reset
 also sends the default state so a chart can clear its brush.
 
-After a chart has loaded its data and rendered, its owner should expose the
-appropriate function and register it:
+After a chart has loaded its data and rendered, its owner exposes the
+appropriate update function and registers it. View B's monthly timeline owns
+the date brush and publishes inclusive month ranges. View A recomputes its
+weighted averages from daily records in the chosen months (its dashed outline
+shows the all-dates value); View C shades the corresponding months.
 
 ```js
 window.updateBarChart = (state) => {
@@ -26,6 +29,5 @@ The other names are `window.updateReliabilityChart` with `"reliability"` and
 supplies the current state, including selections made while data was loading.
 Updates are currently synchronous; each chart should apply the state without
 calling the selection functions in response to that update. User-initiated
-bar clicks and brush changes should call the selection functions above.
-Unregistered charts do not yet respond to shared controls; the page identifies
-them while integration is in progress.
+bar clicks, timeline legend selections, and brush changes call the selection
+functions above.

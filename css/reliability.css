@@ -1,5 +1,12 @@
 #reliability-chart {
   overflow: hidden;
+  position: relative;
+}
+
+.chart-card-b .chart-description {
+  margin: -6px 0 10px;
+  color: #56616d;
+  font-size: 0.9rem;
 }
 
 #reliability-chart svg {
@@ -34,6 +41,16 @@
   stroke-width: 2.5;
   stroke-linejoin: round;
   stroke-linecap: round;
+  transition: opacity 120ms ease, stroke-width 120ms ease;
+}
+
+#reliability-chart .reliability-line.selected-line {
+  stroke-width: 4;
+  opacity: 1;
+}
+
+#reliability-chart .reliability-line.faded-line {
+  opacity: 0.18;
 }
 
 #reliability-chart .zero-line {
@@ -56,8 +73,62 @@
   stroke-width: 3;
 }
 
+#reliability-chart .legend-item {
+  cursor: pointer;
+}
+
+#reliability-chart .legend-item:focus-visible {
+  outline: 2px solid #4578c4;
+  outline-offset: 3px;
+}
+
+#reliability-chart .brush-hint {
+  fill: #56616d;
+  font: 11px sans-serif;
+}
+
+#reliability-chart .reliability-brush .selection {
+  fill: #4578c4;
+  fill-opacity: 0.16;
+  stroke: #28559a;
+}
+
+#reliability-chart .reliability-brush .handle {
+  fill: #28559a;
+}
+
+#reliability-chart .reliability-tooltip {
+  position: absolute;
+  z-index: 20;
+  max-width: 230px;
+  padding: 7px 9px;
+  border: 1px solid #ccd4dc;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 8px rgb(26 39 52 / 12%);
+  color: #202a35;
+  font-size: 12px;
+  line-height: 1.45;
+  pointer-events: none;
+  opacity: 0;
+}
+
+#reliability-chart .reliability-tooltip.visible {
+  opacity: 1;
+}
+
+#reliability-chart .tooltip-selected {
+  font-weight: 700;
+}
+
 #reliability-chart .chart-error {
   color: #a00;
   padding: 1rem;
   text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #reliability-chart .reliability-line {
+    transition: none;
+  }
 }
