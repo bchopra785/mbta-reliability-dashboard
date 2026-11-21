@@ -53,6 +53,7 @@
       return;
     }
     const start = new Date(state.startDate.getFullYear(), state.startDate.getMonth(), 1);
+    // The shared end month is inclusive, so shade through the start of the next month.
     const endExclusive = new Date(state.endDate.getFullYear(), state.endDate.getMonth() + 1, 1);
     const xStart = chartX(start);
     const xEnd = chartX(endExclusive);
