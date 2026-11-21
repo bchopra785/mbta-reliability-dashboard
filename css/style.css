@@ -104,6 +104,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* View A spans both rows; the timelines share the second column. */
 .dashboard-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.8fr);
@@ -164,6 +165,12 @@ button:focus-visible {
   color: #28559a;
 }
 
+/* Long filenames should not force the write-up wider than the screen. */
+.content-column code {
+  overflow-wrap: anywhere;
+}
+
+/* Stack the charts on narrow screens. */
 @media (max-width: 760px) {
   body {
     padding: 24px 16px;

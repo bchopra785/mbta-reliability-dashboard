@@ -1,6 +1,8 @@
-# COSI 116A Final Project Template
+# The Hidden Cost of MBTA Delays
 
-This template will help you get started with your project. Please look through all these materials so you know how to organize your project.
+Team 5's COSI 116A dashboard explores MBTA subway reliability and ridership
+recovery using three linked D3 visualizations. The repository is
+https://github.com/bchopra785/mbta-reliability-dashboard.
 
 ## Hosting Your Project
 
@@ -29,7 +31,7 @@ Your project is a static website: `index.html` plus the files it loads. At the e
 
 * `index.html` contains the main dashboard content.
 
-* `style.css` contains the CSS.
+* `css/style.css` contains the shared dashboard CSS.
 
 * `LICENSE` is your source code license.
 
@@ -44,9 +46,13 @@ Each folder has an explanatory `README.md` file
 
 * `images` will contain your screenshots, diagrams, and photos.
 
-* `js` will contain all JavaScript files you write.
+* `css` contains shared dashboard styles and individual chart stylesheets.
 
-  * `barchart.js`, `reliability.js`, and `ridership.js` are placeholders for the dashboard's three visualizations. Each visualization should be built following the [Reusable Chart model](https://bost.ocks.org/mike/chart/).
+* `js` contains `dashboard.js` for shared selections, plus `barchart.js`,
+  `reliability.js`, and `ridership.js` for the three visualizations.
+
+* `scripts` contains data-preparation scripts. See `data/README.md` for the
+  monthly excess-trip-time aggregation.
   
 * `lib` will contain any JavaScript library you use. It currently includes D3.
 

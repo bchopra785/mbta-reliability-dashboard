@@ -108,6 +108,7 @@
 
     <h1>Data Analysis</h1>
     <p>We use excess trip time data to compare observed trip times with baseline trip times. To prepare the data, we aggregate estimated passenger counts and weighted trip, travel, and wait-time components by subway line and month. We calculate passenger-weighted excess minutes by subtracting the summed baseline component from the summed observed component and dividing by the total estimated passengers for the selected period.</p>
+    <p>The excess-time data covers January 2022 through August 2026 for the Red, Orange, and Blue Lines. The monthly components can be regenerated from <code>data/delayData.csv</code> using <code>scripts/prepare_monthly_excess.py</code>. These values are passenger-weighted estimates relative to a baseline, not direct observations of every individual trip.</p>
 
     <h2>View C ridership data</h2>
     <p>For the ridership timeline, I used the line-level <code>mbtaMonthlyRidershipByModeLine.csv</code> source and kept only the Red, Orange, and Blue lines. The data is separated by weekday, Saturday, and Sunday daytypes. For each line and month, I summed <code>ridership_total</code> across those three daytypes and divided by the sum of <code>daycount</code> across the same three daytypes. I used that average daily ridership for both years and divided the current month's value by the 2019 value for the same calendar month, then multiplied by 100. The script converts the source month to the first day of the month and writes <code>ridershipRecovery.csv</code>.</p>
@@ -131,16 +132,19 @@
     <h1>Conclusion</h1>
 
     <p>This dashboard helps users compare excess trip time across subway lines, explore monthly reliability changes, and examine ridership relative to 2019. The shared line selection and monthly date brush connect the views so users can focus on a line and period while retaining context across the dashboard.</p>
+    <p>Across the full excess-time dataset, the Red Line has the highest passenger-weighted average excess trip time of the three lines, followed by the Orange and Blue Lines. These comparisons describe patterns in the available data; they do not establish that reliability changes caused ridership changes. Future work could incorporate additional context about service disruptions and examine other MBTA services.</p>
 
     
     <h1>Acknowledgments</h1>
 
-    <p>We used the COSI 116A final project template as the starting point for the website and GitHub Copilot to assist with development.</p>
-    <p><em>To be completed: add the exact dataset sources and links, credit other external materials, and review AI acknowledgments with the team.</em></p>
+    <p>Our data comes from the <a href="https://mbta-massdot.opendata.arcgis.com/">MBTA Open Data Portal</a>. We used the <a href="https://github.com/COSI116A-Brandeis-Infovis/COSI-116A-Final-Project-Template">COSI 116A final project template</a> as the starting point for the website and GitHub Copilot to assist with development.</p>
     
     <ul>
       <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
+      <li><a href="https://mbta-massdot.opendata.arcgis.com/datasets/mbta-heavy-rail-excess-trip-time/about">MBTA Heavy Rail Excess Trip Time</a> dataset.</li>
+      <li><a href="https://mbta-massdot.opendata.arcgis.com/datasets/2048258a18354256a650d41f8fe4532c_0/about">MBTA Monthly Ridership By Mode and Line</a> dataset.</li>
     </ul>
+    <p><em>Team review: confirm the source links match the downloaded files and credit any other external materials or AI tools used.</em></p>
     
   </div>
   

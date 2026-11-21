@@ -45,6 +45,7 @@ def main():
             except (ValueError, InvalidOperation, TypeError) as error:
                 raise ValueError(f"Invalid data on CSV row {row_number}: {error}") from error
 
+            # Keep passenger and weighted-component sums for accurate range averages.
             for field, value in values.items():
                 totals[(month, row["route_id"])][field] += value
 

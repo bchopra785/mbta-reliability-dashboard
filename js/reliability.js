@@ -39,6 +39,7 @@
         x(new Date(state.endDate.getFullYear(), state.endDate.getMonth() + 1, 1))
       ]
       : null;
+    // Moving the brush emits an end event; suppress it while applying shared state.
     syncingBrush = true;
     brushGroup.call(brush.move, selection);
     syncingBrush = false;
@@ -241,6 +242,7 @@
 
       const [left, right] = event.selection;
       const bisect = d3.bisector((date) => date);
+      // Snap the brush to whole months, including the final selected month.
       const startIndex = Math.max(0, bisect.right(dates, x.invert(left)) - 1);
       const endIndex = Math.min(
         dates.length - 1,

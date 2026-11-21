@@ -26,6 +26,7 @@
 
   function snapshotState() {
     const { selectedLine, startDate, endDate } = window.dashboardState;
+    // Give each chart its own dates so it cannot mutate the shared selection.
     return {
       selectedLine,
       startDate: startDate === null ? null : new Date(startDate.getTime()),
@@ -70,6 +71,7 @@
       throw new TypeError(`${chartNames[name]} must be a function before registering ${name}.`);
     }
     chartUpdates.set(name, update);
+    // Apply the current selection even if this chart finished loading later.
     updateChart(name, update);
     updateNotice();
   };
