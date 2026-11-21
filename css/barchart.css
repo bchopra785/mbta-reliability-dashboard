@@ -209,3 +209,42 @@
   font-style: italic;
   color: #888;
 }
+/* ---------- Sprint 2 additions ---------- */
+
+/* "Showing: Jan 2023 to Dec 2023" above the chart */
+.bar-chart .range-label {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Error or empty-data message */
+.bar-chart .chart-message {
+  font-size: 14px;
+  color: #a00;
+  fill: #a00;
+}
+
+/* Hide the browser's default focus box; show our own only for keyboard users */
+.bar-chart .bar-group:focus {
+  outline: none;
+}
+
+/* Keyboard focus on a bar */
+.bar-chart .bar-group:focus-visible {
+  outline: none;
+}
+
+.bar-chart .bar-group:focus-visible .bar-outline {
+  stroke: #1f1f1f;
+  stroke-width: 2px;
+  stroke-dasharray: 3 2;
+}
+
+/* Date range shown in the tooltip */
+.bar-chart-tooltip .tooltip-range {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
