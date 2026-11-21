@@ -48,6 +48,7 @@
 
       <article class="chart-card chart-card-b">
         <h2>View B: How has excess trip time changed over time?</h2>
+        <p class="chart-description">Monthly passenger-weighted excess minutes by line. Drag across months to filter the other views; select a line to highlight it and fade the others.</p>
         <div id="reliability-chart" class="chart-container" aria-label="Excess trip time over time"></div>
       </article>
 
@@ -99,11 +100,18 @@
     <h1>Visualization explanation</h1>
     
     <p><em>Final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.</em></p>
+    <h2>View C: Ridership recovery</h2>
+    <p>The ridership timeline uses three lines for the Red, Orange, and Blue subway lines. Position shows each month's average daily ridership as a percentage of the corresponding month in 2019; the dashed 100% line marks the 2019 ridership level. Selecting a line highlights that line and fades the other two. Selecting a date range shades both end months, and the tooltip identifies the month, line, and recovery percentage.</p>
+
+    <h2>View B: Monthly reliability</h2>
+    <p>The reliability timeline shows monthly average excess trip minutes for each subway line. Hover to compare exact monthly values, drag across the timeline to select inclusive months, and use the line controls or legend to highlight a line. The selected months update the daily-data summary in View A and are shaded in View C.</p>
 
     <h1>Data Analysis</h1>
     <p>We use excess trip time data to compare observed trip times with baseline trip times. To prepare the data, we aggregate estimated passenger counts and weighted trip, travel, and wait-time components by subway line and month. We calculate passenger-weighted excess minutes by subtracting the summed baseline component from the summed observed component and dividing by the total estimated passengers for the selected period.</p>
 
-    <p><em>Ridership source, cleaning, and comparison with corresponding 2019 months: to be completed.</em></p>
+    <h2>View C ridership data</h2>
+    <p>For the ridership timeline, I used the line-level <code>mbtaMonthlyRidershipByModeLine.csv</code> source and kept only the Red, Orange, and Blue lines. The data is separated by weekday, Saturday, and Sunday daytypes. For each line and month, I summed <code>ridership_total</code> across those three daytypes and divided by the sum of <code>daycount</code> across the same three daytypes. I used that average daily ridership for both years and divided the current month's value by the 2019 value for the same calendar month, then multiplied by 100. The script converts the source month to the first day of the month and writes <code>ridershipRecovery.csv</code>.</p>
+    <p>This method uses observed ridership totals and day counts rather than the source's <code>ridership_average</code> column or the NTD ridership file. A same-calendar-month 2019 comparison is intended to reduce seasonal differences. The displayed percentage is rounded for readability, and any month without a usable 2019 baseline or complete daytype coverage is not estimated.</p>
 
     <h1>Task Analysis</h1>
 
@@ -122,7 +130,7 @@
 
     <h1>Conclusion</h1>
 
-    <p>This dashboard is designed to help users compare excess trip time across subway lines, identify changes in reliability over time, and explore ridership relative to 2019. The project is still in development: the ridership chart currently uses sample data, and the shared interactions are not yet fully connected. Once integration is complete, we will update this section with supported findings, limitations, and possible improvements.</p>
+    <p>This dashboard helps users compare excess trip time across subway lines, explore monthly reliability changes, and examine ridership relative to 2019. The shared line selection and monthly date brush connect the views so users can focus on a line and period while retaining context across the dashboard.</p>
 
     
     <h1>Acknowledgments</h1>
